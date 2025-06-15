@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infomase - Прогноз погоди</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <i class="fas fa-cloud-sun-rain fa-2x" style="color: var(--sidebar-active-color); margin-right: 10px;"></i>
+                <span>Infomase</span>
+            </div>
+            <nav class="navigation">
+                <h3>GENERAL</h3>
+                <ul>
+                    <li class="active" id="dashboard-nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <a href="#" data-section="dashboard">Dashboard</a>
+                    </li>
+                    <li id="map-nav-link">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <a href="#" data-section="map">Map</a>
+                    </li>
+                    <li id="saved-locations-nav-link">
+                        <i class="fas fa-save"></i>
+                        <a href="#" data-section="saved-locations">Saved Location</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-calendar-alt"></i>
+                        <a href="#">Calendar</a>
+                    </li>
+                </ul>
+                <h3>SYSTEM</h3>
+                <ul>
+                    <li id="logout-button-li" style="display: none;">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <button class="button-link" id="logout-btn">Log Out</button>
+                    </li>
+                    <li>
+                        <i class="fas fa-cog"></i>
+                        <a href="#">Settings</a>
+                    </li>
+                    <li id="login-link-container" style="display: none;">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <a href="/login.html">Login</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="date-info">
+                    <h2>Октябрь 2022</h2>
+                    <span>Wednesday, 05</span>
+                </div>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="location-search" placeholder="Search location..." value="Kyiv">
+                </div>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div id="auth-status" style="margin-left: 20px; display: flex; align-items: center; gap: 10px;">
+                    <span id="welcome-message" style="color: var(--header-text-color); font-weight: 500;"></span>
+                </div>
+            </header>
+
+            <section id="dashboard-section">
+                <section class="current-weather">
+                    <div class="weather-card main-card">
+                        <div class="card-header">
+                            <span id="current-location">Purwokerto Selatan</span>
+                            <button id="save-location-btn" style="background: none; border: none; color: white; cursor: pointer; font-size: 1.5em; margin-left: 10px;">+</button>
+                            <span id="current-time">08:00 pm</span>
+                        </div>
+                        <div class="main-details">
+                            <span class="temperature" id="current-temp">24°c</span>
+                            <img src="https://via.placeholder.com/80x80/cccccc/ffffff?text=☁" alt="Weather Icon" id="current-weather-icon">
+                            <div class="description">
+                                <span id="current-condition">Rainstorm</span>
+                                <span id="current-feels-like">Feels like 22°Celcius</span>
+                            </div>
+                        </div>
+                        <div class="additional-details">
+                            <div class="detail-item">
+                                <span>PRESSURE</span>
+                                <span id="current-pressure">1010 mb</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>WIND</span>
+                                <span id="current-wind">4 km/hr</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>VISIBILITY</span>
+                                <span id="current-visibility">7km</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>DEW POINT</span>
+                                <span id="current-dew-point">24°c</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>MOISTURE</span>
+                                <span id="current-humidity">96%</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="upcoming-forecast">
+                    <div class="forecast-header">
+                        <h3>Upcoming weather forecast</h3>
+                        <div class="nav-arrows">
+                            <button>←</button>
+                            <button>→</button>
+                        </div>
+                    </div>
+                    <div class="forecast-cards" id="forecast-cards-container">
+                        <div class="forecast-card">
+                            <span class="date">06 Okt</span>
+                            <span class="temp">24°c</span>
+                            <img src="https://via.placeholder.com/50x50/cccccc/ffffff?text=☁" alt="Weather Icon">
+                            <span class="condition">Rainstorm</span>
+                            <span class="feels-like">Feels like 22°Celcius</span>
+                        </div>
+                        <div class="forecast-card">
+                            <span class="date">07 Okt</span>
+                            <span class="temp">28°c</span>
+                            <img src="https://via.placeholder.com/50x50/cccccc/ffffff?text=☀" alt="Weather Icon">
+                            <span class="condition">Sunny cloudy</span>
+                            <span class="feels-like">Feels like 27°Celcius</span>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section id="map-section" style="display: none;">
+                <div class="weather-card" style="padding: 20px;">
+                    <h2 style="color: var(--header-text-color); margin-bottom: 20px;">Погода на карті</h2>
+                    <div style="width: 100%; height: 500px; overflow: hidden;">
+                        <iframe
+                            id="osm-map-iframe"
+                            width="100%"
+                            height="100%"
+                            frameborder="0"
+                            scrolling="no"
+                            marginheight="0"
+                            marginwidth="0"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=30.2974%2C50.3168%2C30.6548%2C50.5828&amp;layer=mapnik&amp;marker=50.4501%2C30.5234"
+                            style="border: 1px solid var(--sidebar-border); border-radius: 10px;">
+                        </iframe>
+                    </div>
+                    <small style="display: block; text-align: center; margin-top: 10px;">
+                        <a id="osm-map-link" href="https://www.openstreetmap.org/#map=12/50.4501/30.5234" target="_blank" rel="noopener noreferrer" style="color: var(--sidebar-active-color); text-decoration: none;">Переглянути більшу карту на OpenStreetMap</a>
+                    </small>
+                </div>
+            </section>
+
+            <section id="saved-locations-section" style="display: none;">
+                <div class="weather-card" style="padding: 20px;">
+                    <h2 style="color: var(--header-text-color); margin-bottom: 20px;">Збережені місця</h2>
+                    <ul id="saved-locations-list" style="list-style: none; padding: 0;">
+                        </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
